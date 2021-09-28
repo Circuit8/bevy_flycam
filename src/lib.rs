@@ -124,7 +124,7 @@ fn cursor_grab(keys: Res<Input<KeyCode>>, mut windows: ResMut<Windows>) {
 /// Contains everything needed to add first-person fly camera behavior to your game
 pub struct PlayerPlugin;
 impl Plugin for PlayerPlugin {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         app.init_resource::<InputState>()
             .init_resource::<MovementSettings>()
             .add_startup_system(setup_player.system())
@@ -138,7 +138,7 @@ impl Plugin for PlayerPlugin {
 /// Same as `PlayerPlugin` but does not spawn a camera
 pub struct NoCameraPlayerPlugin;
 impl Plugin for NoCameraPlayerPlugin {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         app.init_resource::<InputState>()
             .init_resource::<MovementSettings>()
             .add_startup_system(initial_grab_cursor.system())
